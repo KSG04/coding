@@ -11,11 +11,10 @@ public class Dictionary {
     private Map<String,String> words = new HashMap<String,String>();
 
     BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
-    int select = 0;
 
     public void choose() throws IOException {
         System.out.println("\n1번 : 단어 추가\n2번 : 단어 검색\n3번 : 모든 단어 출력\n4번 : 프로그램 종료");
-
+        int select = 0;
         try {
             select = Integer.parseInt(bf.readLine());
         }catch (Exception e){
