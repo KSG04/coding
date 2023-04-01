@@ -2,18 +2,16 @@ package week_4.과제2_전화번호저장.User;
 
 import java.util.regex.Pattern;
 
-public class User {
+public class Phone {
 
     private String name;
     private String phone;
 
-    public User(){}
+    public Phone(){}
 
 
-    public User(String name, String phone) {
-        if (name == null || name.isBlank()){
-            throw new IllegalArgumentException(String.format("잘못된 name(%s)이 들어왔습니다.",name));
-        }
+    public Phone(String name, String phone) {
+
         this.name = name;
         this.phone = phone ;
     }

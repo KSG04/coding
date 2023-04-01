@@ -1,6 +1,6 @@
 package week_4.과제2_전화번호저장.Service;
 
-import week_4.과제2_전화번호저장.User.User;
+import week_4.과제2_전화번호저장.User.Phone;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 // 이름이 겹치는 사람이 있으니 유의해서 코딩
-public class Phone extends User {
-    User user;
-    private final List<User> users = new ArrayList<>();
+public class servicePhone extends Phone {
+    Phone phone;
+    private final List<Phone> phones = new ArrayList<>();
     BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
     public void choose() throws IOException {
 
@@ -45,8 +45,11 @@ public class Phone extends User {
         String name = bf.readLine();
         System.out.print("\n2. 전화번호 입력 : ( - 뺴고 입력 )");
         String phoneNumber = bf.readLine();
-
-        users.add(new User(name,phoneNumber));
+        if (name.isBlank()){
+            System.out.println("잘못된 입력입니다!!.\n");
+            addUser();
+        }
+        phones.add(new Phone(name,phoneNumber));
         System.out.println("\t\t 등록 완료 ");
         choose();
 
@@ -57,10 +60,10 @@ public class Phone extends User {
         String searchName = bf.readLine();
         int count = 0;
 
-        for (int i = 0; i < users.size(); i++){
-            if (searchName.equals(users.get(i).getName())){
+        for (int i = 0; i < phones.size(); i++){
+            if (searchName.equals(phones.get(i).getName())){
                 count ++;
-                System.out.println("\n"+count + " 이름 : " + users.get(i).getName() + " 전화번호 : " + users.get(i).getPhone() );
+                System.out.println("\n"+count + " 이름 : " + phones.get(i).getName() + " 전화번호 : " + phones.get(i).getPhone() );
             }
         }
         if (count == 0){
@@ -73,14 +76,14 @@ public class Phone extends User {
         System.out.println("\t\t 모든 고객의 정보를 출력합니다.\n");
         int count = 0;
 
-        if (users.isEmpty()){
+        if (phones.isEmpty()){
             System.out.println("현재 등록되어 있는 유저가 없습니다!!\n");
             choose();
         }
 
-        for (int i = 0; i < users.size(); i++){
+        for (int i = 0; i < phones.size(); i++){
             count ++;
-            System.out.println(count + " 이름 : " + users.get(i).getName() + " 전화번호 : " + users.get(i).getPhone() );
+            System.out.println(count + " 이름 : " + phones.get(i).getName() + " 전화번호 : " + phones.get(i).getPhone() );
         }
         choose();
     }
