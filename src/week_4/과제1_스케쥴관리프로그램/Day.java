@@ -39,10 +39,6 @@ public class Day {
                 choose();
             }
 
-            // 사용자 입력 값이 4번일시 프로그램 종료 메서드로 이동
-            if (select == 4){
-                end();
-            }
 
             switch (select) {
                 case 1:
@@ -54,6 +50,8 @@ public class Day {
                 case 3:
                     //전체출력 메서드로 이동
                     allCheckDay();
+                case 4 :
+                    end();
                 default:
                     //잘못된 번호 입력시 출력
                     System.err.println("번호를 잘못 선택하셨습니다.");
