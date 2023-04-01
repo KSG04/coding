@@ -8,7 +8,6 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class Day {
-    //진짜 모르겠네
     // 키와 값으로 구성된 Entry객체를 저장하는 자료타입, month 생성
     // 값은 중복될 수 있지만 키값은 중복될 수 없다!!
     // 많은 양의 데이터를 검색하는데 있어서 뛰어난 성능을 가지는 HashMap 자료구조
@@ -42,15 +41,16 @@ public class Day {
 
             switch (select) {
                 case 1:
-                    //저장 메서드로 이동
+                    //저장 메서드 호출
                     addSchedule(saveInfo());
                 case 2:
-                    //일정 검색 메서드로 이동
+                    //일정 검색 메서드 호출
                     checkDay();
                 case 3:
-                    //전체출력 메서드로 이동
+                    //전체출력 메서드 호출
                     allCheckDay();
                 case 4 :
+                    //종료 메서드 호출
                     end();
                 default:
                     //잘못된 번호 입력시 출력
