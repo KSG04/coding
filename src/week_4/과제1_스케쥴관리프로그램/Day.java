@@ -169,7 +169,7 @@ public class Day {
         //month에 값이 있다면 하나씩 출력
         while (keys.hasNext()){
             int key = keys.next();
-            System.out.println("날짜 : " + key + "\t 일정 : " + month.get(key));
+            System.out.println("날짜 : " + key +"일" + "\t 일정 : " + month.get(key));
 
         }
         System.out.println("\n");

@@ -1,5 +1,7 @@
 package week_4.과제2_전화번호저장;
 
+import week_4.과제2_전화번호저장.Service.Phone;
+
 import java.io.IOException;
 
 public class PhoneBook {
