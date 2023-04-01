@@ -28,7 +28,17 @@ public class Day {
 
             // bf.readLine()으로 읽을 시 string 타입으로 읽어지기 떄문에 정수로 저장할 시 반드시 변환 해야 함.
             // bf.read()로 int 타입으로 저장할 수 있지만 read()는 10진법으로 저장하는게 아니라 아스키 코드로 저장하기 때문에 스트링으로 읽고 변환하는게 좋음
-            int select = Integer.parseInt(bf.readLine());
+            int select = 0;
+
+            // 읽은 입력값을 int 값으로 변환해 select로 넣어주지만 변환이 불가능한 값이 들어올 경우 에러 처리
+            try {
+                select = Integer.parseInt(bf.readLine());
+
+            }catch (Exception e){
+                System.err.println(e + " \n" + "잘못 입력하셨습니다. ");
+                choose();
+            }
+
             // 사용자 입력 값이 4번일시 프로그램 종료 메서드로 이동
             if (select == 4){
                 end();
