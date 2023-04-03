@@ -11,13 +11,13 @@ public class Day {
     // 키와 값으로 구성된 Entry객체를 저장하는 자료타입, month 생성
     // 값은 중복될 수 있지만 키값은 중복될 수 없다!!
     // 많은 양의 데이터를 검색하는데 있어서 뛰어난 성능을 가지는 HashMap 자료구조
-    Map<Integer ,String> month = new HashMap<Integer,String>();
+    Map<String ,String> month = new HashMap<String,String>();
 
     //스캐너보다 더욱 빠른 처리가 가능한 버퍼리더로 사용자의 입력값을 읽음
     // 스캐너와 차이점 : 스캐너는 사용자가 입력하는 즉시 읽지만 버퍼리더는 사용자가 엔터를 누를때까지 기다렸다가 한번에 읽음
     BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
     // 사용자가 검색하려는 일정 저장공간
-    int daySearch = 0;
+    String daySearch ;
 
     public Day(){
         System.out.println("스케줄 관리 프로그램");
@@ -64,19 +64,19 @@ public class Day {
     }
 
     //저장 메서드
-    public int saveInfo() throws IOException {
+    public String saveInfo() throws IOException {
 
         System.out.print("스케줄을 저장할 날짜를 입력해 주세요 : ");
 
-        daySearch = Integer.parseInt(bf.readLine());
+        daySearch = bf.readLine();
         // HashMap month에 키값이 있다면 순서대로 keys에 저장
-        Iterator<Integer> keys = month.keySet().iterator();
+        Iterator<String> keys = month.keySet().iterator();
         // keys에 그다음 값이 있다면 while문으로 끝까지 하나씩 입력
         while (keys.hasNext()){
             // keys의 다음값을 key에 하나씩 저장
-            int key = keys.next();
+            String key = keys.next();
             // 저장하려는 날짜인 daySearch와 month에 저장되어 있는 key값들을 하나씩 비교해서 같은 값이 있다면
-            if (key == daySearch){
+            if (key.equals(daySearch)){
                 System.out.println(daySearch + "일 등록되어 있는 스케쥴이 있습니다.\n");
                 System.out.println("정보 : " + month.get(daySearch) + "\n");
                 // while 문을 사용해서 사용자가 번호를 잘못 입력 시 되묻는 기능 추가
@@ -101,7 +101,7 @@ public class Day {
     }
 
     //정보 저장 메서드
-    public void addSchedule(int daySearch) throws IOException {
+    public void addSchedule(String daySearch) throws IOException {
         // while문 사용하여 추후 사용자가 번호를 잘못 입력시 되묻는 기능 추가
         while (true) {
             System.out.println("저장할 정보를 입력해 주세요.");
@@ -130,15 +130,15 @@ public class Day {
     // 일정 검색 메서드
     public void checkDay() throws IOException {
         System.out.println("검색하려는 일정을 입력하세요!!");
-        int daySearch = Integer.parseInt(bf.readLine());
+        String daySearch = bf.readLine();
         //month 객체 배열을 하나씩 keys에 저장
-        Iterator<Integer> keys = month.keySet().iterator();
+        Iterator<String> keys = month.keySet().iterator();
         //keys에 값을 저장하고 month에 그다음 값이 있을 시
         while(keys.hasNext()){
             //key에 keys값을 하나씩 저장
-            int key = keys.next();
+            String key = keys.next();
             // 검색하려는 일정과 key의 키값이 일치할 시 기능 수행하고 처음으로 되돌아가기
-            if (daySearch == key){
+            if (key.equals(daySearch)){
                 System.out.println("Day : " + daySearch);
                 System.out.println("일정 : " + month.get(daySearch) + "\n");
                 choose();
@@ -164,13 +164,13 @@ public class Day {
     //모든 일정 출력 메서드
     public void allCheckDay() throws IOException {
         System.out.println("\t\t등록되어 있는 모든 일정을 출력합니다.!\t\t\n");
-        Iterator<Integer> keys = month.keySet().iterator();
+        Iterator<String> keys = month.keySet().iterator();
         // month에 값이 없다면 출력
         if (month.isEmpty())
             System.out.println("\t\t등록되어 있는 일정이 없습니다!!\t\t");
         //month에 값이 있다면 하나씩 출력
         while (keys.hasNext()){
-            int key = keys.next();
+            String key = keys.next();
             System.out.println("날짜 : " + key +"일" + "\t 일정 : " + month.get(key));
 
         }
