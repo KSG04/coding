@@ -10,9 +10,16 @@ import java.util.List;
 
 // 이름이 겹치는 사람이 있으니 유의해서 코딩
 public class servicePhone extends Phone {
-    Phone phone;
     private final List<Phone> phones = new ArrayList<>();
+
     BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+
+
+
+    public servicePhone(){
+        System.out.println("이름과 전화번호 저장 프로그램");
+    }
+
     public void choose() throws IOException {
 
         int select = 0;
@@ -24,7 +31,7 @@ public class servicePhone extends Phone {
             try {
                 select = Integer.parseInt(bf.readLine());
             }catch (Exception e){
-                System.err.println(e + "\n" + "잘못 입력하셨습니다.");
+                System.err.println(e + "\n" + "잘못 입력하셨습니다!!.");
                 choose();
             }
 
@@ -34,7 +41,7 @@ public class servicePhone extends Phone {
                 case 3 : allSearch();
                 case 4 : end();
                 default:
-                    System.err.println("잘못 입력하셨습니다!!");
+                    System.err.println("잘못 입력하셨습니다!!.");
             }
         }
 

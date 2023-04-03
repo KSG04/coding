@@ -19,6 +19,10 @@ public class Day {
     // 사용자가 검색하려는 일정 저장공간
     int daySearch = 0;
 
+    public Day(){
+        System.out.println("스케줄 관리 프로그램");
+    }
+
     public void choose() throws IOException {
 
         while (true) {
