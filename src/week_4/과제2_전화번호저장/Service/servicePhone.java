@@ -70,7 +70,8 @@ public class servicePhone extends Phone {
         for (int i = 0; i < phones.size(); i++){
             if (searchName.equals(phones.get(i).getName())){
                 count ++;
-                System.out.println("\n"+count + " 이름 : " + phones.get(i).getName() + " 전화번호 : " + phones.get(i).getPhone() );
+                System.out.println("\n"+count + " 이름 : " + phones.get(i).getName() +
+                        " 전화번호 : " + phones.get(i).getPhone() );
             }
         }
         if (count == 0){
@@ -90,7 +91,8 @@ public class servicePhone extends Phone {
 
         for (int i = 0; i < phones.size(); i++){
             count ++;
-            System.out.println(count + " 이름 : " + phones.get(i).getName() + " 전화번호 : " + phones.get(i).getPhone() );
+            System.out.println(count + " 이름 : " + phones.get(i).getName() +
+                    " 전화번호 : " + phones.get(i).getPhone() );
         }
         choose();
     }
